@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragments.PersonFormFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="8dp"
+        android:paddingTop="20dp"
+        >
+        <!--<AutoCompleteTextView-->
+            <!--android:id="@+id/product_hint"-->
+            <!--android:text="default value"-->
+            <!--android:hint="Select Product"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height= "wrap_content"/>-->
+        <Spinner
+            android:id="@+id/input_product_id"
+            android:layout_width="match_parent"
+            android:autofillHints="@string/phone_no"
+            android:layout_height="wrap_content"
+            android:prompt="@string/select_product"
+            ></Spinner>
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <AutoCompleteTextView
+                android:id="@+id/input_borrow_amt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:singleLine="true"
+                android:maxLines="1"
+                android:hint="@string/amount"
+                />
+        </android.support.design.widget.TextInputLayout>
+        <EditText
+            android:id="@+id/input_borrow_form_remarks"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:background="@null"
+            android:gravity="top|left"
+            android:inputType="textMultiLine"
+            android:overScrollMode="always"
+            android:scrollbarStyle="insideInset"
+            android:scrollbars="vertical"
+            android:lines="6"
+            android:scrollHorizontally="false"
+            android:hint="@string/product_remarks"
+            />
+        <Button
+            android:id="@+id/borrow_save_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorThemeSucces"
+            android:textColor="@color/textColorWhite"
+            android:textStyle="bold"
+            android:text="@string/product_save"/>
+    </LinearLayout>
+
+
+</FrameLayout>

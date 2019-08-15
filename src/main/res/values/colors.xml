@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#eaeaea</color>
+    <color name="textColorPrimary">#000000</color>
+    <color name="bgColorPrimaryFirst">#eaeaea</color>
+    <color name="bgColorPrimarySecond">#ffffff</color>
+    <color name="textColorWhite">#ffffff</color>
+    <color name="textColorDark">#000000</color>
+
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorThemeSucces">#28a745</color>
+    <color name="colorBtnText">#FFFFFF</color>
+    <color name="colorTextDanger">#f12828</color>
+</resources>

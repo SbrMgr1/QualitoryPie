@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+tools:context=".Fragments.BorrowListFragment"
+android:padding="8dp">
+
+<!-- TODO: Update blank fragment layout -->
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_weight="100">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Name"
+        android:layout_weight="40"
+        android:textFontWeight="500"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Remaining (Rs)"
+        android:layout_weight="60"
+        android:textFontWeight="500"
+        />
+</LinearLayout>
+<ListView
+    android:layout_marginTop="30dp"
+    android:id="@+id/person_list_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"></ListView>
+</FrameLayout>
