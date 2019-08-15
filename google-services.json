@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1028448409281",
+    "firebase_url": "https://qualitorypie.firebaseio.com",
+    "project_id": "qualitorypie",
+    "storage_bucket": "qualitorypie.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1028448409281:android:a0ed7ccfdad86e17",
+        "android_client_info": {
+          "package_name": "com.qualitorypie.qualitorypie"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1028448409281-27md18n5ourv947v7vikbn68c33du885.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.qualitorypie.qualitorypie",
+            "certificate_hash": "3a3dae282028edc7a9574da39c3ab8a5c0f16045"
+          }
+        },
+        {
+          "client_id": "1028448409281-eni8a7ehe92563qvp0sb2olrnc5jl2ig.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCnvzF60Dy0KFFRO4KwJP75uoKOVXTtqoA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1028448409281-eni8a7ehe92563qvp0sb2olrnc5jl2ig.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
