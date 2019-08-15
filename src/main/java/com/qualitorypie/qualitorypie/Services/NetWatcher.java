@@ -1,4 +1,4 @@
-package com.qualitorypie.qualitorypie;
+package com.qualitorypie.qualitorypie.Services;
 
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -12,6 +12,8 @@ import android.net.NetworkInfo;
 import android.net.Uri;
 import android.net.wifi.WifiManager;
 import android.util.Log;
+
+import com.qualitorypie.qualitorypie.R;
 
 import static android.content.Context.NOTIFICATION_SERVICE;
 
