@@ -38,11 +38,16 @@
             android:name=".Activities.PersonActivity"
             android:label="@string/title_activity_borrow_list" >
         </activity>
-        <receiver android:name=".Services.NetWatcher">
+        <receiver android:name="com.qualitorypie.qualitorypie.Services.NetWatcher">
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
             </intent-filter>
         </receiver>
+        <service android:name="com.qualitorypie.qualitorypie.Services.MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

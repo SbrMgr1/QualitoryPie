@@ -31,7 +31,6 @@ public class NetWatcher extends BroadcastReceiver {
         if (info != null && info.isConnected()) {
             Log.d(TAG, "wifi connected");
 
-
             PendingIntent pIntent = PendingIntent.getActivity(context, 0, intent, 0);
             Uri uri= RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 
