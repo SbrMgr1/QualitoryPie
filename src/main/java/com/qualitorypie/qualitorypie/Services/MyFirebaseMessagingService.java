@@ -13,6 +13,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     private String SENDER_TAG = "fierbase-local-sender";
     private LocalBroadcastManager broadcaster;
 
+
     @Override
     public void onCreate() {
         broadcaster = LocalBroadcastManager.getInstance(this);
@@ -23,9 +24,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
         Log.d(SENDER_TAG, "Broadcasting message");
         Intent intent = new Intent(FCM_ACTION);
-        // intent.putExtra("key", "Sample Data");
-        // put your all data using put extra
-        LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
+        broadcaster.sendBroadcast(intent);
         super.onMessageReceived(remoteMessage);
 
 
@@ -34,6 +33,5 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     @Override
     public void onNewToken(String token) {
         super.onNewToken(token);
-        Log.d(SENDER_TAG, "Refreshed token: " + token);
     }
 }

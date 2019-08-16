@@ -16,12 +16,12 @@ import com.qualitorypie.qualitorypie.Services.MyFirebaseMessagingService;
 public class BaseActivity extends AppCompatActivity {
     private final String TAG = "BaseActivity";
 
-
+    LocalBroadcastManager localBroadcastManager = LocalBroadcastManager.getInstance(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        LocalBroadcastManager.getInstance(this).registerReceiver(broadcast_receiver, new IntentFilter(MyFirebaseMessagingService.FCM_ACTION));
+        localBroadcastManager.registerReceiver(broadcast_receiver, new IntentFilter(MyFirebaseMessagingService.FCM_ACTION));
     }
 
 
