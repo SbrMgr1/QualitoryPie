@@ -34,7 +34,6 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         for (Map.Entry<String, String> entry : fcm_msg.entrySet()) {
             message_intent.putExtra(entry.getKey(),entry.getValue());
         }
-
         broadcaster.sendBroadcast(message_intent);
         super.onMessageReceived(remoteMessage);
     }
@@ -42,7 +41,6 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     @Override
     public void onNewToken(String token) {
         super.onNewToken(token);
-
         Intent token_intent = new Intent(FCM_NEW_TOKEN);
         token_intent.putExtra("new_device_id",token);
         broadcaster.sendBroadcast(token_intent);
