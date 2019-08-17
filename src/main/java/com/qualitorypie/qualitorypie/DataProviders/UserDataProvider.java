@@ -58,7 +58,10 @@ public class UserDataProvider extends Application {
         editor.commit();
     }
 
-    public void clearUserData() {
-
+    public void clear() {
+        setEmail(null);
+        setUsername(null);
+        setUser_id(0);
     }
+
 }

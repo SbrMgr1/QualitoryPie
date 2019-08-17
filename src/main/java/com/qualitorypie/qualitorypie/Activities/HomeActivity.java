@@ -133,6 +133,7 @@ public class HomeActivity extends BaseActivity
         } else if (id == R.id.nav_logout) {
             UserDataProvider UserDataProvider = new UserDataProvider(HomeActivity.this);
             UserDataProvider.setEmail(null);
+
             getIntent().removeExtra("email");
             Intent intent = new Intent(HomeActivity.this, LoginActivity.class);
             startActivity(intent);
