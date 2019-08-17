@@ -1,16 +1,21 @@
 package com.qualitorypie.qualitorypie.Activities;
 
 import android.app.AlertDialog;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -18,13 +23,17 @@ import android.widget.Toast;
 import com.qualitorypie.qualitorypie.Adapters.HomeBannerAdapter;
 import com.qualitorypie.qualitorypie.DataProviders.UserDataProvider;
 import com.qualitorypie.qualitorypie.R;
+import com.qualitorypie.qualitorypie.Services.MyFirebaseMessagingService;
 
-public class HomeActivity extends AppCompatActivity
+public class HomeActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private final String TAG = "HomeActivity";
 
     private ViewPager viewPager;
     private HomeBannerAdapter homeBannerAdapter;
     private int current_banner = 0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -133,4 +142,5 @@ public class HomeActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
 }

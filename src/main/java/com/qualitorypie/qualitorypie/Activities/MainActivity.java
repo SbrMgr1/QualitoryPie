@@ -3,13 +3,14 @@ package com.qualitorypie.qualitorypie.Activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import com.qualitorypie.qualitorypie.DataProviders.UserDataProvider;
 import com.qualitorypie.qualitorypie.R;
 
 import helpers.BaseHelper;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends AppCompatActivity {
     private static int SPLASH_TIMEOUT = 2000;
 
     @Override

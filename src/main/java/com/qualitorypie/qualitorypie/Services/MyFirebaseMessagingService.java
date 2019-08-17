@@ -23,8 +23,8 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     public void onMessageReceived(RemoteMessage remoteMessage) {
 
         Log.d(SENDER_TAG, "Broadcasting message");
-        Intent intent = new Intent(FCM_ACTION);
-        broadcaster.sendBroadcast(intent);
+
+        broadcaster.sendBroadcast(new Intent(FCM_ACTION));
         super.onMessageReceived(remoteMessage);
 
 

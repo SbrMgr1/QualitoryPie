@@ -11,7 +11,7 @@ import android.util.Log;
 import com.qualitorypie.qualitorypie.Fragments.ProdListFragment;
 import com.qualitorypie.qualitorypie.R;
 
-public class ProductActivity extends AppCompatActivity {
+public class ProductActivity extends BaseActivity {
 
     private String current_fragment;
 

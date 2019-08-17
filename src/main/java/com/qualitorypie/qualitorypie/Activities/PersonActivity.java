@@ -18,7 +18,7 @@ import com.qualitorypie.qualitorypie.R;
 import java.util.HashMap;
 import java.util.Map;
 
-public class PersonActivity extends AppCompatActivity {
+public class PersonActivity extends BaseActivity {
 
     private LocalDb localDb;
     private String currentFragment;
