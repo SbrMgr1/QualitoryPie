@@ -79,7 +79,7 @@ public class BaseActivity extends AppCompatActivity {
     protected Socket mySocket;
     {
         try {
-            mySocket = IO.socket(ApiHelper.node_connect_path);
+            mySocket = IO.socket(ApiHelper.config().node_connect_path);
             mySocket.on(Socket.EVENT_CONNECT, new Emitter.Listener() {
                 @Override
                 public void call(Object... objects) {
