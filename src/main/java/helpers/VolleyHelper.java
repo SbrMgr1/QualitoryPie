@@ -12,10 +12,17 @@ import com.android.volley.toolbox.Volley;
 
 public class VolleyHelper {
 
-    public static void put_request(Context context,String url,String type,Object data){
-        RequestQueue queue = Volley.newRequestQueue(context);
 
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+
+    public static void put_request(Context context,String url,String type){
+        RequestQueue queue = Volley.newRequestQueue(context);
+        int method = 0;
+        if(type.toLowerCase() == "post"){
+            method =  Request.Method.POST;
+        }else{
+            method =  Request.Method.GET;
+        }
+        StringRequest stringRequest = new StringRequest(method, url,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
