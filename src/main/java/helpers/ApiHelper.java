@@ -14,14 +14,14 @@ public class ApiHelper{
             node_connect_path = "http://192.168.254.7:3030";
             host = "http://192.168.254.7";
             api_version = "app";
-        }else{
+        }else{//server
             node_connect_path = "http://192.168.254.7:3030";
             host = "http://192.168.254.7";
             api_version = "app";
         }
     }
 
-    public static ApiHelper config(){
+    public static ApiHelper get(){
         return new ApiHelper();
     }
 }
