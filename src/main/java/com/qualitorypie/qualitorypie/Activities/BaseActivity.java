@@ -116,6 +116,7 @@ public class BaseActivity extends AppCompatActivity {
         }
     }
 
+    //// **************** gps location service code start *************************//
     protected void enable_gps_location() {
 //        add LocationManager and LocationListener properties to baseActivity property like following commented two lines codes
 //        private LocationManager locationManager;
@@ -176,6 +177,6 @@ public class BaseActivity extends AppCompatActivity {
         }
         locationManager.requestLocationUpdates("gps", 5000, 0, locationListener);
     }
-
+    //// **************** gps location service code end *************************//
 
 }
