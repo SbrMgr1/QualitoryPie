@@ -10,6 +10,7 @@ public class ApiHelper{
     private ApiHelper() {
 
         String active = "local";
+
         if(active == "local"){
             node_connect_path = "http://192.168.254.7:3030";
             host = "http://192.168.254.7";
