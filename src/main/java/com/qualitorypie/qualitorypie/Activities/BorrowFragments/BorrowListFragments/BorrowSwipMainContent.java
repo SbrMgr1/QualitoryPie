@@ -1,4 +1,4 @@
-package com.qualitorypie.qualitorypie.Fragments;
+package com.qualitorypie.qualitorypie.Activities.BorrowFragments.BorrowListFragments;
 
 import android.content.Context;
 import android.net.Uri;
@@ -17,9 +17,9 @@ public class BorrowSwipMainContent extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-
-        }
+//        if (getArguments() != null) {
+//
+//        }
     }
 
     @Override

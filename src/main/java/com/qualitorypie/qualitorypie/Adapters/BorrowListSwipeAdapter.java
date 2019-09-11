@@ -14,9 +14,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.qualitorypie.qualitorypie.Activities.PersonActivity;
+import com.qualitorypie.qualitorypie.Activities.BorrowActivity;
+import com.qualitorypie.qualitorypie.Activities.BorrowFragments.BorrowForm;
 import com.qualitorypie.qualitorypie.DataProviders.LocalDb;
-import com.qualitorypie.qualitorypie.Fragments.BorrowFormFragment;
 import com.qualitorypie.qualitorypie.Models.BorrowModel;
 import com.qualitorypie.qualitorypie.R;
 
@@ -56,7 +56,7 @@ public class BorrowListSwipeAdapter extends PagerAdapter {
                 @Override
                 public void onClick(View view) {
 
-                    Fragment fragment_container = new BorrowFormFragment();
+                    Fragment fragment_container = new BorrowForm();
                     FragmentTransaction ft = ((Activity) container.getContext()).getFragmentManager().beginTransaction();
                     ft.replace(R.id.borrow_list_fragment, fragment_container);
                     ft.commit();
@@ -74,8 +74,8 @@ public class BorrowListSwipeAdapter extends PagerAdapter {
                         LocalDb borrowDb = new LocalDb(container.getContext(), borrowModel_tmp);
                         borrowDb.deleteData(borrowModel_tmp.getId());
 
-                        PersonActivity personActivity = (PersonActivity) container.getContext();
-                        ((PersonActivity) container.getContext()).manageRemainingAmt(borrowModel_tmp.getUser_id());
+                        BorrowActivity borrowActivity = (BorrowActivity) container.getContext();
+                        ((BorrowActivity) container.getContext()).manageRemainingAmt(borrowModel_tmp.getUser_id());
 
                     } else {
                         Toast.makeText(container.getContext(), "Error Occured while deleting Borrow", Toast.LENGTH_SHORT).show();

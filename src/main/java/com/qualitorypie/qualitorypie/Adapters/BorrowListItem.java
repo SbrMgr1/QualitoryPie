@@ -10,16 +10,17 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
+import com.qualitorypie.qualitorypie.Adapters.BorrowListSwipeAdapter;
 import com.qualitorypie.qualitorypie.Models.BorrowModel;
 import com.qualitorypie.qualitorypie.R;
 
 import java.util.ArrayList;
 
-public class BorrowListAdapter extends ArrayAdapter<BorrowModel> {
+public class BorrowListItem extends ArrayAdapter<BorrowModel> {
 
     private ArrayList<BorrowModel> borrowModels;
 
-    public BorrowListAdapter(Context context, View view, ArrayList<BorrowModel> objects) {
+    public BorrowListItem(Context context, View view, ArrayList<BorrowModel> objects) {
         super(context, R.layout.borrow_adapter_list, objects);
         borrowModels = objects;
     }

@@ -11,19 +11,19 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.qualitorypie.qualitorypie.Activities.PersonActivity;
-import com.qualitorypie.qualitorypie.Fragments.BorrowListFragment;
+import com.qualitorypie.qualitorypie.Activities.BorrowActivity;
+import com.qualitorypie.qualitorypie.Activities.BorrowFragments.BorrowList;
 import com.qualitorypie.qualitorypie.Models.PersonModel;
 import com.qualitorypie.qualitorypie.R;
 
 import java.util.ArrayList;
 
-public class PersonListAdapter extends ArrayAdapter<PersonModel> {
+public class PersonList extends ArrayAdapter<PersonModel> {
     int my_resource;
 
     private ArrayList<PersonModel> personModels;
 
-    public PersonListAdapter(Context context, View view, ArrayList<PersonModel> objects) {
+    public PersonList(Context context, View view, ArrayList<PersonModel> objects) {
         super(context, R.layout.person_adapter_list, objects);
         this.personModels = objects;
         my_resource = R.layout.person_adapter_list;
@@ -46,11 +46,11 @@ public class PersonListAdapter extends ArrayAdapter<PersonModel> {
                 //preparing to parameter to new fragment
 
 
-                Fragment formFragment = new BorrowListFragment();//new fragments
+                Fragment formFragment = new BorrowList();//new fragments
 
-                ((PersonActivity)getContext()).setPersonModel(personModels.get(position));
+                ((BorrowActivity)getContext()).setPersonModel(personModels.get(position));
 
-                FragmentTransaction ft = ((PersonActivity)getContext()).getFragmentManager().beginTransaction();
+                FragmentTransaction ft = ((BorrowActivity)getContext()).getFragmentManager().beginTransaction();
                 ft.replace(R.id.borrow_list_fragment, formFragment);
                 ft.commit();
 

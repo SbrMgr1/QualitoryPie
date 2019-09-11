@@ -4,13 +4,12 @@ import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 
+import com.qualitorypie.qualitorypie.Activities.BorrowFragments.PersonList;
 import com.qualitorypie.qualitorypie.DataProviders.LocalDb;
-import com.qualitorypie.qualitorypie.Fragments.BorrowListFragment;
-import com.qualitorypie.qualitorypie.Fragments.BorrowPersonListFragment;
+import com.qualitorypie.qualitorypie.Activities.BorrowFragments.BorrowList;
 import com.qualitorypie.qualitorypie.Models.BorrowModel;
 import com.qualitorypie.qualitorypie.Models.PersonModel;
 import com.qualitorypie.qualitorypie.R;
@@ -18,7 +17,7 @@ import com.qualitorypie.qualitorypie.R;
 import java.util.HashMap;
 import java.util.Map;
 
-public class PersonActivity extends BaseActivity {
+public class BorrowActivity extends BaseActivity {
 
     private LocalDb localDb;
     private String currentFragment;
@@ -34,7 +33,7 @@ public class PersonActivity extends BaseActivity {
 
         personModel = new PersonModel();
         //loading default fragments
-        Fragment fragment_container = new BorrowPersonListFragment();
+        Fragment fragment_container = new PersonList();
         FragmentTransaction ft = getFragmentManager().beginTransaction();
         ft.replace(R.id.borrow_list_fragment, fragment_container);
         ft.commit();
@@ -62,13 +61,13 @@ public class PersonActivity extends BaseActivity {
     @Override
     public void onBackPressed() {
         Log.d("here", currentFragment);
-        if (currentFragment == "PersonFormFragment" || currentFragment == "BorrowListFragment") {
-            Fragment fragment_container = new BorrowPersonListFragment();
+        if (currentFragment == "PersonForm" || currentFragment == "BorrowList") {
+            Fragment fragment_container = new PersonList();
             FragmentTransaction ft = getFragmentManager().beginTransaction();
             ft.replace(R.id.borrow_list_fragment, fragment_container);
             ft.commit();
-        } else if (currentFragment == "BorrowFormFragment") {
-            Fragment fragment_container = new BorrowListFragment();
+        } else if (currentFragment == "BorrowForm") {
+            Fragment fragment_container = new BorrowList();
             FragmentTransaction ft = getFragmentManager().beginTransaction();
             ft.replace(R.id.borrow_list_fragment, fragment_container);
             ft.commit();

@@ -39,7 +39,7 @@
             android:label="@string/title_activity_product_list">
         </activity>
         <activity
-            android:name=".Activities.PersonActivity"
+            android:name=".Activities.BorrowActivity"
             android:label="@string/title_activity_borrow_list" >
         </activity>
         <receiver android:name="com.qualitorypie.qualitorypie.Services.NetWatcher">

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragments.BorrowSwipMainContent">
+    tools:context=".Activities.BorrowFragments.BorrowListFragments.BorrowSwipMainContent">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -12,7 +12,7 @@
             android:id="@+id/txt_adapter_borrow_item_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Product Name"
+            android:text="@string/product_name"
             android:layout_weight="40"
             />
         <TextView

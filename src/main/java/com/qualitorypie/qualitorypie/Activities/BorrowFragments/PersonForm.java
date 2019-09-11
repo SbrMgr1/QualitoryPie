@@ -1,4 +1,4 @@
-package com.qualitorypie.qualitorypie.Fragments;
+package com.qualitorypie.qualitorypie.Activities.BorrowFragments;
 
 import android.app.Fragment;
 import android.app.FragmentTransaction;
@@ -13,7 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.qualitorypie.qualitorypie.Activities.PersonActivity;
+import com.qualitorypie.qualitorypie.Activities.BorrowActivity;
 import com.qualitorypie.qualitorypie.DataProviders.LocalDb;
 import com.qualitorypie.qualitorypie.Models.PersonModel;
 import com.qualitorypie.qualitorypie.R;
@@ -23,7 +23,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-public class PersonFormFragment extends Fragment {
+public class PersonForm extends Fragment {
 
     private int user_id = 0;
     private AutoCompleteTextView person_name;
@@ -57,10 +57,10 @@ public class PersonFormFragment extends Fragment {
         View activityView = getActivity().findViewById(R.id.to_borrow_action);
         activityView.setVisibility(View.GONE);
         if (user_id > 0) {
-            ((PersonActivity)getActivity()).getSupportActionBar().setTitle("Update old Person");
+            ((BorrowActivity)getActivity()).getSupportActionBar().setTitle("Update old Person");
 
         } else {
-            ((PersonActivity)getActivity()).getSupportActionBar().setTitle("Add new Person");
+            ((BorrowActivity)getActivity()).getSupportActionBar().setTitle("Add new Person");
         }
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.person_fragment_form, container, false);
@@ -80,7 +80,7 @@ public class PersonFormFragment extends Fragment {
                 } while (single_data.moveToNext());
             }
         }
-        ((PersonActivity)getActivity()).setCurrentFragment("PersonFormFragment");
+        ((BorrowActivity)getActivity()).setCurrentFragment("PersonForm");
         initPersonSaveBtn(view);
         return view;
     }
@@ -108,7 +108,7 @@ public class PersonFormFragment extends Fragment {
 
                             Toast.makeText(getActivity(), "Saved Successfully.", Toast.LENGTH_LONG).show();
 
-                            Fragment fragment_container = new BorrowPersonListFragment();
+                            Fragment fragment_container = new PersonList();
                             FragmentTransaction ft = getFragmentManager().beginTransaction();
                             ft.replace(R.id.borrow_list_fragment, fragment_container);
                             ft.commit();
@@ -121,10 +121,10 @@ public class PersonFormFragment extends Fragment {
 
                         if (localDb.addData(items)) {
 
-                            ((PersonActivity)getActivity()).setCurrentFragment("BorrowPersonListFragment");
+                            ((BorrowActivity)getActivity()).setCurrentFragment("PersonList");
                             Toast.makeText(getActivity(), "Saved Successfully.", Toast.LENGTH_LONG).show();
 
-                            Fragment fragment_container = new BorrowPersonListFragment();
+                            Fragment fragment_container = new PersonList();
                             FragmentTransaction ft = getFragmentManager().beginTransaction();
                             ft.replace(R.id.borrow_list_fragment, fragment_container);
                             ft.commit();

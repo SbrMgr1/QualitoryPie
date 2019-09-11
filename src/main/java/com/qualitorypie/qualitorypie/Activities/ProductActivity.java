@@ -3,12 +3,11 @@ package com.qualitorypie.qualitorypie.Activities;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 
-import com.qualitorypie.qualitorypie.Fragments.ProdListFragment;
+import com.qualitorypie.qualitorypie.Activities.ProductFragments.ProductList;
 import com.qualitorypie.qualitorypie.R;
 
 public class ProductActivity extends BaseActivity {
@@ -28,12 +27,12 @@ public class ProductActivity extends BaseActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         current_searchview = findViewById(R.id.searchView_prod);
         //loading default fragments
-        Fragment productList = new ProdListFragment();
+        Fragment productList = new ProductList();
         FragmentTransaction ft = getFragmentManager().beginTransaction();
         ft.replace(R.id.prod_frag_container, productList);
         ft.commit();
         //assigning current fragments
-        setCurrentFragment("ProdListFragment");
+        setCurrentFragment("ProductList");
     }
 
     /**
@@ -51,9 +50,9 @@ public class ProductActivity extends BaseActivity {
 
     @Override
     public void onBackPressed() {
-        if (current_fragment.equals("ProductFormFragment")) {
+        if (current_fragment.equals("ProductForm")) {
             Log.d("here","inside prrid");
-            Fragment productList = new ProdListFragment();
+            Fragment productList = new ProductList();
             FragmentTransaction ft = getFragmentManager().beginTransaction();
             ft.replace(R.id.person_list_container, productList);
             ft.commit();

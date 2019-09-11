@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragments.PersonFormFragment">
+    tools:context=".Activities.BorrowFragments.BorrowList">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -12,12 +12,6 @@
         android:padding="8dp"
         android:paddingTop="20dp"
         >
-        <!--<AutoCompleteTextView-->
-            <!--android:id="@+id/product_hint"-->
-            <!--android:text="default value"-->
-            <!--android:hint="Select Product"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height= "wrap_content"/>-->
         <Spinner
             android:id="@+id/input_product_id"
             android:layout_width="match_parent"

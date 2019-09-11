@@ -1,4 +1,4 @@
-package com.qualitorypie.qualitorypie.Fragments;
+package com.qualitorypie.qualitorypie.Activities.ProductFragments;
 
 import android.app.Fragment;
 import android.app.FragmentTransaction;
@@ -16,7 +16,6 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 
 import com.qualitorypie.qualitorypie.Activities.ProductActivity;
-import com.qualitorypie.qualitorypie.Adapters.ProductListAdapter;
 import com.qualitorypie.qualitorypie.DataProviders.LocalDb;
 import com.qualitorypie.qualitorypie.Models.ProductModel;
 import com.qualitorypie.qualitorypie.R;
@@ -29,13 +28,13 @@ import java.util.Map;
 /**
  * create an instance of this fragment.
  */
-public class ProdListFragment extends Fragment {
+public class ProductList extends Fragment {
 
     ArrayList<ProductModel> product_Model_list = new ArrayList<>();
     private ListView product_list_container;
     private View view;
     private ListView mList;
-    private ProductListAdapter adapter;
+    private com.qualitorypie.qualitorypie.Adapters.ProductList adapter;
     private Integer page_size = 15;
     private Integer next_offset = 0;
     private LocalDb localDb;// making productModel for database connection
@@ -61,7 +60,7 @@ public class ProdListFragment extends Fragment {
         view = inflater.inflate(R.layout.product_fragment_list_layout, container, false);
 
         load_data(true);
-        ((ProductActivity)getActivity()).setCurrentFragment("ProdListFragment");
+        ((ProductActivity)getActivity()).setCurrentFragment("ProductListFragment");
 
         addClickListnerToFloatingActionButton();
         return view;
@@ -102,7 +101,7 @@ public class ProdListFragment extends Fragment {
 
         if (make_empty) {
             mList = view.findViewById(R.id.product_list_container);
-            adapter = new ProductListAdapter((ProductActivity) getActivity(), view, product_Model_list);
+            adapter = new com.qualitorypie.qualitorypie.Adapters.ProductList((ProductActivity) getActivity(), view, product_Model_list);
             mList.setAdapter(adapter);
         } else {
             Log.d("hering", String.valueOf(product_Model_list.size()));
@@ -155,7 +154,7 @@ public class ProdListFragment extends Fragment {
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Fragment formFragment = new ProductFormFragment();
+                Fragment formFragment = new ProductForm();
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
                 ft.replace(R.id.prod_frag_container, formFragment);
                 ft.commit();

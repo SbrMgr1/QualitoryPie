@@ -1,4 +1,4 @@
-package com.qualitorypie.qualitorypie.Fragments;
+package com.qualitorypie.qualitorypie.Activities.BorrowFragments.BorrowListFragments;
 
 import android.content.Context;
 import android.net.Uri;

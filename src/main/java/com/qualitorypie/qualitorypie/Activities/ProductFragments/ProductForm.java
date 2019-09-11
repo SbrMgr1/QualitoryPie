@@ -1,10 +1,9 @@
-package com.qualitorypie.qualitorypie.Fragments;
+package com.qualitorypie.qualitorypie.Activities.ProductFragments;
 
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.support.v7.widget.SearchView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-public class ProductFormFragment extends Fragment {
+public class ProductForm extends Fragment {
 
     private int product_id = 0;
     private AutoCompleteTextView product_name;
@@ -39,7 +38,7 @@ public class ProductFormFragment extends Fragment {
         localDb = new LocalDb(getActivity(), new ProductModel());
 
         ((ProductActivity)getActivity()).current_searchview.setVisibility(View.GONE);
-        ((ProductActivity)getActivity()).setCurrentFragment("ProductFormFragment");
+        ((ProductActivity)getActivity()).setCurrentFragment("ProductForm");
         if (getArguments() != null) {
             product_id = getArguments().getInt("product_id");
             Toast.makeText(getActivity(), "ProductModel data has been loaded successfully.", Toast.LENGTH_SHORT).show();
@@ -95,10 +94,10 @@ public class ProductFormFragment extends Fragment {
                         if (localDb.updateData(items, product_id)) {
 
                             ProductActivity productActivity = (ProductActivity) getActivity();
-                            productActivity.setCurrentFragment("ProdListFragment");
+                            productActivity.setCurrentFragment("ProductList");
                             Toast.makeText(getActivity(), "Saved Successfully.", Toast.LENGTH_LONG).show();
 
-                            Fragment fragment_container = new ProdListFragment();
+                            Fragment fragment_container = new ProductList();
                             FragmentTransaction ft = getFragmentManager().beginTransaction();
                             ft.replace(R.id.prod_frag_container, fragment_container);
                             ft.commit();
@@ -109,10 +108,10 @@ public class ProductFormFragment extends Fragment {
                     } else if (localDb.addData(items)) {
 
                         ProductActivity productActivity = (ProductActivity) getActivity();
-                        productActivity.setCurrentFragment("ProdListFragment");
+                        productActivity.setCurrentFragment("ProductList");
                         Toast.makeText(getActivity(), "Saved Successfully.", Toast.LENGTH_LONG).show();
 
-                        Fragment fragment_container = new ProdListFragment();
+                        Fragment fragment_container = new ProductList();
                         FragmentTransaction ft = getFragmentManager().beginTransaction();
                         ft.replace(R.id.prod_frag_container, fragment_container);
                         ft.commit();

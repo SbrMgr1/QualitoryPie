@@ -26,7 +26,6 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_product_form">Product Form</string>
-    <string name="product_name">Product Name</string>
     <string name="whole_sale_price">Whole Sale Price</string>
     <string name="retail_price">Retail Price</string>
     <string name="product_remarks">Remarks</string>
@@ -36,6 +35,7 @@
     <string name="retail_price_required">Retail can not be empty</string>
 
 
+    <string name="product_name">Product Name</string>
     <string name="person_name">Person Name</string>
     <string name="phone_no">Phone No</string>
     <string name="address">Address</string>

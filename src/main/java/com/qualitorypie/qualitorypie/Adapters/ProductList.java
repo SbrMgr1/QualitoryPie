@@ -13,19 +13,19 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.qualitorypie.qualitorypie.Activities.ProductActivity;
-import com.qualitorypie.qualitorypie.Fragments.ProductFormFragment;
+import com.qualitorypie.qualitorypie.Activities.ProductFragments.ProductForm;
 import com.qualitorypie.qualitorypie.Models.ProductModel;
 import com.qualitorypie.qualitorypie.R;
 
 import java.util.ArrayList;
 
-public class ProductListAdapter extends ArrayAdapter<ProductModel> {
+public class ProductList extends ArrayAdapter<ProductModel> {
     int my_resource;
     private Context my_activity;
     private ArrayList<ProductModel> productModels;
     private Boolean enable_adapter_click;
 
-    public ProductListAdapter(Context context, View view, ArrayList<ProductModel> objects) {
+    public ProductList(Context context, View view, ArrayList<ProductModel> objects) {
 
         super(context, R.layout.product_adapter_list, objects);
         my_activity = context;
@@ -51,7 +51,7 @@ public class ProductListAdapter extends ArrayAdapter<ProductModel> {
                 Bundle bundle = new Bundle();
                 bundle.putInt("product_id", productModels.get(position).getId());
 
-                Fragment formFragment = new ProductFormFragment();//new fragments
+                Fragment formFragment = new ProductForm();//new fragments
                 formFragment.setArguments(bundle);//setting new arguements
 
                 FragmentTransaction ft = ((ProductActivity) my_activity).getFragmentManager().beginTransaction();

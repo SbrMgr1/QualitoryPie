@@ -1,7 +1,6 @@
-package com.qualitorypie.qualitorypie.Fragments;
+package com.qualitorypie.qualitorypie.Activities.BorrowFragments;
 
 import android.app.Fragment;
-import android.content.Context;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.widget.SearchView;
@@ -15,7 +14,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.qualitorypie.qualitorypie.Activities.PersonActivity;
+import com.qualitorypie.qualitorypie.Activities.BorrowActivity;
 import com.qualitorypie.qualitorypie.Adapters.ProductDropdownListAdapter;
 import com.qualitorypie.qualitorypie.DataProviders.LocalDb;
 import com.qualitorypie.qualitorypie.Models.BorrowModel;
@@ -28,7 +27,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-public class BorrowFormFragment extends Fragment {
+public class BorrowForm extends Fragment {
 
 
     private Spinner input_product_id_spinner;
@@ -67,7 +66,7 @@ public class BorrowFormFragment extends Fragment {
         remarks = (EditText) view.findViewById(R.id.input_borrow_form_remarks);
 
         initBorrowSaveBtn(view);
-        ((PersonActivity)getActivity()).setCurrentFragment("BorrowFormFragment");
+        ((BorrowActivity)getActivity()).setCurrentFragment("BorrowForm");
         return view;
     }
 
@@ -106,7 +105,7 @@ public class BorrowFormFragment extends Fragment {
                     BorrowModel borrowModel = new BorrowModel();
                     Map<String, String> items = new HashMap<String, String>();
 
-                    items.put("user_id", String.valueOf(((PersonActivity)getActivity()).getPersonModel().getId()));
+                    items.put("user_id", String.valueOf(((BorrowActivity)getActivity()).getPersonModel().getId()));
                     items.put("prod_id", String.valueOf(selected_model.getId()));
                     items.put("borrow_amt", input_borrow_amt.getText().toString());
                     items.put("remarks", remarks.getText().toString());
@@ -116,8 +115,8 @@ public class BorrowFormFragment extends Fragment {
 
                     if (localDb.addData(items)) {
 
-                        PersonActivity personActivity = (PersonActivity) getActivity();
-                        ((PersonActivity) getActivity()).manageRemainingAmt(((PersonActivity)getActivity()).getPersonModel().getId());
+                        BorrowActivity borrowActivity = (BorrowActivity) getActivity();
+                        ((BorrowActivity) getActivity()).manageRemainingAmt(((BorrowActivity)getActivity()).getPersonModel().getId());
 
                         input_borrow_amt.setText("");
 

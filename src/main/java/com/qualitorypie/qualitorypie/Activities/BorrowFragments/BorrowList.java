@@ -1,4 +1,4 @@
-package com.qualitorypie.qualitorypie.Fragments;
+package com.qualitorypie.qualitorypie.Activities.BorrowFragments;
 
 import android.app.Fragment;
 import android.app.FragmentTransaction;
@@ -11,8 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
-import com.qualitorypie.qualitorypie.Activities.PersonActivity;
-import com.qualitorypie.qualitorypie.Adapters.BorrowListAdapter;
+import com.qualitorypie.qualitorypie.Activities.BorrowActivity;
+import com.qualitorypie.qualitorypie.Adapters.BorrowListItem;
 import com.qualitorypie.qualitorypie.DataProviders.LocalDb;
 import com.qualitorypie.qualitorypie.Models.BorrowModel;
 import com.qualitorypie.qualitorypie.Models.ProductModel;
@@ -22,7 +22,7 @@ import java.util.AbstractList;
 import java.util.ArrayList;
 
 
-public class BorrowListFragment extends Fragment {
+public class BorrowList extends Fragment {
 
     private Integer person_id;
     private LocalDb LocalDb;
@@ -32,7 +32,7 @@ public class BorrowListFragment extends Fragment {
     private Integer next_offset = 0;
     private AbstractList<BorrowModel> borrowList = new ArrayList<>();
     private View view;
-    private BorrowListAdapter adapter;
+    private BorrowListItem adapter;
     private SearchView current_searchview;
 
     @Override
@@ -54,13 +54,13 @@ public class BorrowListFragment extends Fragment {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.borrow_fragment_list, container, false);
 
-        ((PersonActivity)getActivity()).getSupportActionBar().setTitle("Borrow List of " + ((PersonActivity)getActivity()).getPersonModel().getPerson_name());
+        ((BorrowActivity)getActivity()).getSupportActionBar().setTitle("Borrow List of " + ((BorrowActivity)getActivity()).getPersonModel().getPerson_name());
 
 
         load_data(true);
 
         addClickListnerToFloatingActionButton();
-        ((PersonActivity)getActivity()).setCurrentFragment("BorrowListFragment");
+        ((BorrowActivity)getActivity()).setCurrentFragment("BorrowList");
         return view;
     }
 
@@ -69,7 +69,7 @@ public class BorrowListFragment extends Fragment {
         ProductModel productModel_tmp = new ProductModel();
         String stmt = "SELECT B.*,P.product_name FROM " + borrowModel_tmp.getTableName() + " B ";
         stmt += " LEFT JOIN " + productModel_tmp.getTableName() + " P ON B.prod_id = P.id ";
-        stmt += " WHERE B.user_id = " + ((PersonActivity)getActivity()).getPersonModel().getId();
+        stmt += " WHERE B.user_id = " + ((BorrowActivity)getActivity()).getPersonModel().getId();
         stmt += " AND B.deleted = 0 ";
         stmt += " LIMIT " + page_size + " OFFSET " + next_offset;
         Cursor datas = LocalDb.rowQuery(stmt);
@@ -87,7 +87,7 @@ public class BorrowListFragment extends Fragment {
         }
         if (make_empty) {
             blist = view.findViewById(R.id.borrow_list_container);
-            adapter = new BorrowListAdapter(getActivity(), view, (ArrayList<BorrowModel>) borrowList);
+            adapter = new BorrowListItem(getActivity(), view, (ArrayList<BorrowModel>) borrowList);
             blist.setAdapter(adapter);
         }
     }
@@ -98,7 +98,7 @@ public class BorrowListFragment extends Fragment {
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Fragment formFragment = new BorrowFormFragment();
+                Fragment formFragment = new BorrowForm();
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
                 ft.replace(R.id.borrow_list_fragment, formFragment);
                 ft.commit();

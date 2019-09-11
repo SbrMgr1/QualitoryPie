@@ -1,4 +1,4 @@
-package com.qualitorypie.qualitorypie.Fragments;
+package com.qualitorypie.qualitorypie.Activities.BorrowFragments;
 
 import android.app.Fragment;
 import android.app.FragmentTransaction;
@@ -14,9 +14,8 @@ import android.widget.AbsListView;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 
-import com.qualitorypie.qualitorypie.Activities.PersonActivity;
-import com.qualitorypie.qualitorypie.Adapters.PersonListAdapter;
-import com.qualitorypie.qualitorypie.Adapters.ProductListAdapter;
+import com.qualitorypie.qualitorypie.Activities.BorrowActivity;
+import com.qualitorypie.qualitorypie.Adapters.ProductList;
 import com.qualitorypie.qualitorypie.DataProviders.LocalDb;
 import com.qualitorypie.qualitorypie.Models.PersonModel;
 import com.qualitorypie.qualitorypie.R;
@@ -29,13 +28,13 @@ import java.util.Map;
 /**
  * create an instance of this fragment.
  */
-public class BorrowPersonListFragment extends Fragment {
+public class PersonList extends Fragment {
 
     ArrayList<PersonModel> person_model_list = new ArrayList<>();
     private ListView product_list_container;
     private View view;
     private ListView mList;
-    private ProductListAdapter adapter;
+    private ProductList adapter;
     private Integer page_size = 15;
     private Integer next_offset = 0;
 
@@ -60,13 +59,13 @@ public class BorrowPersonListFragment extends Fragment {
 
         View activityView = getActivity().findViewById(R.id.to_borrow_action);
         activityView.setVisibility(View.VISIBLE);
-        ((PersonActivity)getActivity()).getSupportActionBar().setTitle("Person List");
+        ((BorrowActivity)getActivity()).getSupportActionBar().setTitle("Person List");
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.person_fragment_list, container, false);
 
         load_data(true);
 
-        ((PersonActivity)getActivity()).setCurrentFragment("BorrowPersonListFragment");
+        ((BorrowActivity)getActivity()).setCurrentFragment("PersonList");
         addClickListnerToFloatingActionButton();
 
         return view;
@@ -107,7 +106,7 @@ public class BorrowPersonListFragment extends Fragment {
         datas.close();
         if (make_empty) {
             mList = view.findViewById(R.id.person_list_container);
-            PersonListAdapter adapter = new PersonListAdapter((PersonActivity) getActivity(), view, person_model_list);
+            com.qualitorypie.qualitorypie.Adapters.PersonList adapter = new com.qualitorypie.qualitorypie.Adapters.PersonList((BorrowActivity) getActivity(), view, person_model_list);
             mList.setAdapter(adapter);
         } else {
             ((BaseAdapter) mList.getAdapter()).notifyDataSetChanged();
@@ -135,7 +134,7 @@ public class BorrowPersonListFragment extends Fragment {
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Fragment formFragment = new PersonFormFragment();
+                Fragment formFragment = new PersonForm();
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
                 ft.replace(R.id.borrow_list_fragment, formFragment);
                 ft.commit();
