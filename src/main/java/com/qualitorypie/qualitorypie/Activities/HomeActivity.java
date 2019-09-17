@@ -117,6 +117,8 @@ public class HomeActivity extends BaseActivity
             startActivity(borrow_list_intent);
 
         } else if (id == R.id.nav_slideshow) {
+            Intent peripheralControlActivityIntent = new Intent(HomeActivity.this, PeripheralControlActivity.class);
+            startActivity(peripheralControlActivityIntent);
 
         } else if (id == R.id.nav_manage) {
 

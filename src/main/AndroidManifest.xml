@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.qualitorypie.qualitorypie">
-
     <!-- To auto-complete the email text field in the login form with the user's emails -->
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:name=".App"
@@ -19,13 +18,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
-        <activity
-            android:name=".Activities.BaseActivity" />
+        <activity android:name=".Activities.PeripheralControlActivity"></activity>
+        <activity android:name=".Activities.BaseActivity" />
         <activity
             android:name=".Activities.MainActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -35,22 +35,22 @@
         <activity
             android:name=".Activities.HomeActivity"
             android:label="@string/title_activity_home" />
-        <activity android:name=".Activities.ProductActivity"
-            android:label="@string/title_activity_product_list">
-        </activity>
+        <activity
+            android:name=".Activities.ProductActivity"
+            android:label="@string/title_activity_product_list"></activity>
         <activity
             android:name=".Activities.BorrowActivity"
-            android:label="@string/title_activity_borrow_list" >
-        </activity>
-        <receiver android:name="com.qualitorypie.qualitorypie.Services.NetWatcher">
+            android:label="@string/title_activity_borrow_list"></activity>
+
+        <receiver android:name=".Services.NetWatcher">
             <intent-filter>
-                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
             </intent-filter>
         </receiver>
-        <service android:name="com.qualitorypie.qualitorypie.Services.MyFirebaseMessagingService">
+
+        <service android:name=".Services.MyFirebaseMessagingService">
             <intent-filter>
-                <action
-                    android:name="com.google.firebase.MESSAGING_EVENT"/>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
     </application>

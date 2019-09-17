@@ -14,7 +14,7 @@ import com.squareup.picasso.Picasso;
 public class HomeBanner extends PagerAdapter {
     private Context current_activity;
 //    private int[] imageIds = new int[]{R.mipmap.banners1_fg, R.mipmap.banners2_fg};
-    private int[] imageIds = new int[]{R.mipmap.banners1_fg, R.mipmap.banners2_fg};
+    private int[] imageIds = new int[3];
 
     public HomeBanner(Context context) {
         current_activity = context;
@@ -37,11 +37,22 @@ public class HomeBanner extends PagerAdapter {
         imageView.setScaleType(ImageView.ScaleType.FIT_XY);
         if(position == 0){
             Picasso.get()
-                    .load("http://laz-img-cdn.alicdn.com/images/ims-web/TB129nvfrj1gK0jSZFuXXcrHpXa.jpg_1200x1200Q100.jpg_.webp")
+                    .load("https://cdn.pixabay.com/photo/2017/03/04/13/52/robot-2116087_960_720.jpg")
+                    .placeholder(R.mipmap.loader)
                     .into(imageView);
 
+
+        }else if(position == 1){
+            Picasso.get()
+                    .load("https://cdn.pixabay.com/photo/2015/06/12/18/31/cute-807306_960_720.png")
+                    .placeholder(R.mipmap.loader)
+                    .into(imageView);
+//            imageView.setImageResource(imageIds[position]);
         }else{
-            imageView.setImageResource(imageIds[position]);
+            Picasso.get()
+                    .load("https://cdn.pixabay.com/photo/2016/12/13/21/20/alien-1905155_960_720.png")
+                    .placeholder(R.mipmap.loader)
+                    .into(imageView);
         }
         container.addView(imageView, 0);
         return imageView;

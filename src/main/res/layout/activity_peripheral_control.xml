@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activities.BorrowActivity">
+    tools:context=".Activities.PeripheralControlActivity">
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:theme="@style/AppTheme.AppBarOverlay"
+        tools:ignore="MissingConstraints">
         <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
+            android:id="@+id/toolbar_peripharal"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             app:popupTheme="@style/AppTheme.PopupOverlay">
             <android.support.v7.widget.SearchView
-                android:id="@+id/searchView_borrow"
+                android:id="@+id/searchView_peripheral"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:queryHint="Search by Person Name"
+                android:queryHint="Search by Product Name"
                 android:layout_gravity="end"
                 />
         </android.support.v7.widget.Toolbar>
@@ -31,8 +31,8 @@
         android:layout_height="match_parent"
         >
         <FrameLayout
-            android:name="com.qualitorypie.qualitorypie.ProdListFragment"
-            android:id="@+id/borrow_list_fragment"
+            android:name="com.qualitorypie.qualitorypie.PeripheralControlActivity"
+            android:id="@+id/peripheral_frag_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -40,12 +40,13 @@
         </FrameLayout>
     </GridLayout>
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/to_borrow_action"
+        android:id="@+id/to_peripheral_control_action"
         action="add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
+        app:srcCompat="@mipmap/plus_white"
         app:backgroundTint="@color/colorThemeSucces"
-        app:srcCompat="@mipmap/plus_white" />
+        tools:ignore="MissingConstraints" />
 </android.support.design.widget.CoordinatorLayout>

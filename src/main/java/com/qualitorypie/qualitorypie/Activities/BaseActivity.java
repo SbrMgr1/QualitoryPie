@@ -71,7 +71,7 @@ public class BaseActivity extends AppCompatActivity {
                 fcm_new_token_note_receiver, new IntentFilter(MyFirebaseMessagingService.FCM_NEW_TOKEN)
         );
 //        enable_gps_location();
-        throw_notification();
+//        throw_notification();
     }
 
     private void throw_notification(){
