@@ -50,11 +50,11 @@ public class ProductActivity extends BaseActivity {
 
     @Override
     public void onBackPressed() {
+
         if (current_fragment.equals("ProductForm")) {
-            Log.d("here","inside prrid");
             Fragment productList = new ProductList();
             FragmentTransaction ft = getFragmentManager().beginTransaction();
-            ft.replace(R.id.person_list_container, productList);
+            ft.replace(R.id.prod_frag_container, productList);
             ft.commit();
         } else {
             // Otherwise defer to system default behavior.
